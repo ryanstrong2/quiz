@@ -1,3 +1,17 @@
-<resources>
-    <string name="app_name">quiz</string>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">Quiz</string>
+    <string name="aOne">Birds <xliff:g id="n"></xliff:g></string>
+    <string name="bOne">Bulls <xliff:g id="Correct"></xliff:g></string>
+    <string name="cOne">Bells <xliff:g id="n"></xliff:g></string>
+    <string name="aTwo">Birds <xliff:g id="n"></xliff:g></string>
+    <string name="bTwo">Bikes <xliff:g id="n"></xliff:g></string>
+    <string name="cTwo">Cars <xliff:g id="Correct"></xliff:g></string>
+    <string name="aThree">Boys <xliff:g id="Correct"></xliff:g></string>
+    <string name="bThree">Bikes <xliff:g id="n"></xliff:g></string>
+    <string name="cThree">Beds <xliff:g id="n"></xliff:g></string>
+    <string name="aFour">Boys <xliff:g id="Correct"></xliff:g></string>
+    <string name="bFour">Bikes <xliff:g id="n"></xliff:g></string>
+    <string name="cFour">Barns <xliff:g id="n"></xliff:g></string>
+
+
 </resources>

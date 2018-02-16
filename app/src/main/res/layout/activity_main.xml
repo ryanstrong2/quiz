@@ -9,7 +9,7 @@
     android:gravity="top"
     android:orientation="vertical"
     tools:context="org.ryanstrong.android.quiz.MainActivity">
-    </LinearLayout>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -24,17 +24,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/oneA"
-            android:textSize="@string/aOne"/>
+            android:text="@string/aOne"/>
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/oneB"
-            android:textSize="@string/bOne"/>
+            android:text="@string/bOne"/>
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/oneC"
-            android:textSize="@string/cOne"/>
+            android:text="@string/cOne"/>
     </RadioGroup>
     <TextView
     android:layout_width="wrap_content"
@@ -50,17 +50,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/twoA"
-            android:textSize="@string/aTwo"/>
+            android:text="@string/aTwo"/>
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/twoB"
-            android:textSize="@string/bTwo"/>
+            android:text="@string/bTwo"/>
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/twoC"
-            android:textSize="@string/cTow"/>
+            android:text="@string/cTwo"/>
 
     </RadioGroup> <TextView
     android:layout_width="wrap_content"
@@ -76,17 +76,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/threeA"
-            android:textSize="@string/aThree"/>
+            android:text="@string/aThree"/>
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/ThreeB"
-            android:textSize="@string/bThree"/>
+            android:text="@string/bThree"/>
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/threeC"
-            android:textSize="@string/cThree"/>
+            android:text="@string/cThree"/>
 
     </RadioGroup>
     <TextView
@@ -103,18 +103,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/fourA"
-            android:textSize="@string/aFour"/>
+            android:text="@string/aFour"/>
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/fourB"
-            android:textSize="@string/bFour"/>
+            android:text="@string/bFour"/>
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/fourC"
-            android:textSize="@string/cFour"/>
-
+            android:text="@string/cFour"/>
     </RadioGroup>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="submitQuiz"
+        android:padding="8dp"
+        android:text="Submit" />
 
+</LinearLayout>
 </ScrollView>
