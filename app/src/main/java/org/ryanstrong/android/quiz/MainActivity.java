@@ -9,7 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    int minScore =0;
+    int minScore =280;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,18 +36,27 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void submitQuiz(View view){
-        RadioGroup radioGroup = (RadioGroup) findViewById(R.id.optionOne);
+        RadioGroup radioGroup =  findViewById(R.id.optionOne);
         boolean oneAnswer = radioGroup.isSelected();
-        RadioGroup radioTwo = (RadioGroup) findViewById(R.id.optionTwo);
+        RadioGroup radioTwo =  findViewById(R.id.optionTwo);
         boolean twoAnswer = radioTwo.isSelected();
-        RadioGroup radioThree = (RadioGroup) findViewById(R.id.optionThree);
+        RadioGroup radioThree = findViewById(R.id.optionThree);
         boolean threeAnswer = radioThree.isSelected();
-        RadioGroup radioGroupFour = (RadioGroup) findViewById(R.id.optionFour);
+        RadioGroup radioGroupFour =  findViewById(R.id.optionFour);
         boolean fourAnswer = radioGroupFour.isSelected();
-//        int score = addScore(minScore, oneAnswer, twoAnswer,
+
+        int score = addScore(minScore,oneAnswer,twoAnswer, threeAnswer,fourAnswer);
+
+        addScore( minScore,  oneAnswer,  twoAnswer,
+         threeAnswer,  fourAnswer) ;
+        displayScore(addScore( minScore,  oneAnswer,  twoAnswer,
+                threeAnswer,  fourAnswer));
+
+            //        int score = addScore(minScore, oneAnswer, twoAnswer,
 //                threeAnswer,fourAnswer);
 //        String displayScore = (createQuizSummary(minScore, boolean oneAnswer, boolean twoAnswer,
 //        boolean threeAnswer, boolean fourAnswer));
+
     }
     private String createQuizSummary(int score, boolean oneAnswer, boolean twoAnswer,
                          boolean threeAnswer, boolean fourAnswer){
@@ -56,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
     private int addScore(int minScore, boolean oneAnswer, boolean twoAnswer,
                          boolean threeAnswer, boolean fourAnswer) {
         if (oneAnswer) {
-            minScore += 1;
+            minScore ++;
         }if (twoAnswer) {
             minScore += 1;
         }if (threeAnswer) {
@@ -65,5 +74,12 @@ public class MainActivity extends AppCompatActivity {
             minScore += 1;
         }
         return minScore;
+    }
+    public void displayScore(int minScore){
+        TextView scoreView = (TextView) findViewById(R.id.score);
+        scoreView.setText(String.valueOf(minScore));
+    }
+    private String quizSummary(int minScore){
+        return "Your Score: " + minScore;
     }
 }

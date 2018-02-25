@@ -12,6 +12,8 @@
     <string name="aFour">Boys <xliff:g id="Correct"></xliff:g></string>
     <string name="bFour">Bikes <xliff:g id="n"></xliff:g></string>
     <string name="cFour">Barns <xliff:g id="n"></xliff:g></string>
-
+    <string name="score">Score </string>
+    <string name="checkA">A</string>
+    <string name="checkB">B</string>
 
 </resources>
