@@ -1,15 +1,20 @@
 package org.ryanstrong.android.quiz;
 
+import android.annotation.SuppressLint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import static org.ryanstrong.android.quiz.R.id.text_answer;
+
 public class MainActivity extends AppCompatActivity {
-    int minScore =280;
+    int minScore ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,38 +41,46 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void submitQuiz(View view){
-        RadioGroup radioGroup =  findViewById(R.id.optionOne);
-        boolean oneAnswer = radioGroup.isSelected();
+        RadioButton radioGroup =  (RadioButton) findViewById(R.id.oneB);
+        boolean oneAnswer = radioGroup.isChecked();
+
 //        RadioGroup radioTwo =  findViewById(R.id.optionTwo);
 //        onTextView(withId(R.id.text_answer))  // withId(R.id.my_view) is a ViewMatcher
 //                .perform(click())               // click() is a ViewAction
 //                .check(matches(isDisplayed()));
 //        onView(allOf(withId(R.id.text_answer), withText("Hello! ")))
-        boolean twoAnswer = radioGroup.isSelected();
-        RadioGroup radioThree = findViewById(R.id.optionThree);
-        boolean threeAnswer = radioThree.isSelected();
-        RadioGroup radioGroupFour =  findViewById(R.id.optionFour);
-        boolean fourAnswer = radioGroupFour.isSelected();
+        EditText entered =(EditText) findViewById(R.id.text_answer);
+//        entered = text_answer;
+        String entry = entered.getText().toString();
+        boolean twoAnswer =  entry.equals("car");
+        RadioButton radioThree = (RadioButton) findViewById(R.id.threeA);
+        boolean threeAnswer = radioThree.isChecked();
+        CheckBox checkBox = (CheckBox) findViewById(R.id.check);
+        boolean checkedA = checkBox.isChecked();
+        CheckBox wrongBox = (CheckBox) findViewById(R.id.checkB);
+        boolean threeWrong = wrongBox.isChecked();
 
-        int score = addScore(minScore,oneAnswer,twoAnswer, threeAnswer,fourAnswer);
+        RadioButton radioGroupFour = (RadioButton) findViewById(R.id.fourAnswer);
+        boolean fourAnswer = radioGroupFour.isChecked();
+
+//        int score = addScore(5,oneAnswer,twoAnswer, threeAnswer,fourAnswer);
 
         addScore( minScore,  oneAnswer,  twoAnswer,
-         threeAnswer,  fourAnswer) ;
+         threeAnswer,  fourAnswer, checkedA, threeWrong) ;
         displayScore(addScore( minScore,  oneAnswer,  twoAnswer,
-                threeAnswer,  fourAnswer));
-
+                threeAnswer,  fourAnswer, checkedA, threeWrong));
             //        int score = addScore(minScore, oneAnswer, twoAnswer,
 //                threeAnswer,fourAnswer);
 //        String displayScore = (createQuizSummary(minScore, boolean oneAnswer, boolean twoAnswer,
 //        boolean threeAnswer, boolean fourAnswer));
-
     }
-    private String createQuizSummary(int score, boolean oneAnswer, boolean twoAnswer,
-                         boolean threeAnswer, boolean fourAnswer){
-        return "Score: " + minScore;
-    }
+//    private String createQuizSummary(int score, boolean oneAnswer, boolean twoAnswer,
+//                         boolean threeAnswer, boolean fourAnswer, boolean checkedA){
+//        return "Score: " + addScore( minScore,  oneAnswer, twoAnswer,
+//         threeAnswer,  fourAnswer, checkedA);
+//    }
     private int addScore(int minScore, boolean oneAnswer, boolean twoAnswer,
-                         boolean threeAnswer, boolean fourAnswer) {
+                         boolean threeAnswer, boolean fourAnswer, boolean checkedA, boolean threeWrong) {
         if (oneAnswer) {
             minScore ++;
         }if (twoAnswer) {
@@ -76,12 +89,17 @@ public class MainActivity extends AppCompatActivity {
             minScore += 1;
         }if (fourAnswer) {
             minScore += 1;
-        }
+        }if(checkedA){
+            minScore ++;
+        if(threeWrong){
+            minScore --;
+        }}
+
         return minScore;
     }
     public void displayScore(int minScore){
         TextView scoreView = (TextView) findViewById(R.id.score);
-        scoreView.setText(String.valueOf(minScore));
+        scoreView.setText(String.valueOf(quizSummary(minScore)));
     }
     private String quizSummary(int minScore){
         return "Your Score: " + minScore;

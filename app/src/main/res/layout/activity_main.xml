@@ -47,7 +47,7 @@
         android:id="@+id/text_answer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/text_answer"
+        android:hint="@string/t_answer"
         android:inputType="textMultiLine" />
     <!--<RadioGroup-->
         <!--android:id="@+id/optionTwo"-->
@@ -122,6 +122,13 @@
     android:textSize="16sp"
     android:text="@string/checkB"
     />
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="24dp"
+        android:shadowColor="@color/colorPrimary"
+        android:textSize="16sp"
+        android:text="@string/checkE"/>
     <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
