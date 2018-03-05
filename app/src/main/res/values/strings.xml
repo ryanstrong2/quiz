@@ -3,6 +3,7 @@
     <string name="aOne">Birds <xliff:g id="n"></xliff:g></string>
     <string name="bOne">Bulls <xliff:g id="Correct"></xliff:g></string>
     <string name="cOne">Bells <xliff:g id="n"></xliff:g></string>
+    <string name="text_answer">Enter answer</string>
     <string name="aTwo">Birds <xliff:g id="n"></xliff:g></string>
     <string name="bTwo">Bikes <xliff:g id="n"></xliff:g></string>
     <string name="cTwo">Cars <xliff:g id="Correct"></xliff:g></string>

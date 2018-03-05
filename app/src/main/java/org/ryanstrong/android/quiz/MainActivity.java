@@ -38,8 +38,12 @@ public class MainActivity extends AppCompatActivity {
     public void submitQuiz(View view){
         RadioGroup radioGroup =  findViewById(R.id.optionOne);
         boolean oneAnswer = radioGroup.isSelected();
-        RadioGroup radioTwo =  findViewById(R.id.optionTwo);
-        boolean twoAnswer = radioTwo.isSelected();
+//        RadioGroup radioTwo =  findViewById(R.id.optionTwo);
+//        onTextView(withId(R.id.text_answer))  // withId(R.id.my_view) is a ViewMatcher
+//                .perform(click())               // click() is a ViewAction
+//                .check(matches(isDisplayed()));
+//        onView(allOf(withId(R.id.text_answer), withText("Hello! ")))
+        boolean twoAnswer = radioGroup.isSelected();
         RadioGroup radioThree = findViewById(R.id.optionThree);
         boolean threeAnswer = radioThree.isSelected();
         RadioGroup radioGroupFour =  findViewById(R.id.optionFour);
