@@ -1,17 +1,15 @@
 package org.ryanstrong.android.quiz;
 
-import android.annotation.SuppressLint;
+import android.content.Context;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.TextView;
 import android.widget.Toast;
-
-import static org.ryanstrong.android.quiz.R.id.text_answer;
 
 public class MainActivity extends AppCompatActivity {
     int minScore ;
@@ -38,8 +36,48 @@ public class MainActivity extends AppCompatActivity {
 //        RadioButton oneA = (RadioButton) findViewById(R.id.oneA);
 //        RadioButton oneB = (RadioButton) findViewById(R.id.oneB);
 //        RadioButton oneC = (RadioButton) findViewById(R.id.oneC);
-
     }
+//    MyClass myClass;
+//    @Override
+//    public void onSaveInstanceState(Bundle outState) {
+//        super.onSaveInstanceState(outState);
+//        outState.putParcelable("obj", myClass);
+//    }
+//    @Override
+//    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+//        // TODO Auto-generated method stub
+//        super.onRestoreInstanceState(savedInstanceState);
+//        myClass=savedInstanceState.getParcelable("obj");
+//    }
+//
+//    public class MyParcelable implements Parcelable {
+//        private int mData;
+//
+//        public int describeContents() {
+//            return 0;
+//        }
+//
+//        /** save object in parcel */
+//        public void writeToParcel(Parcel out, int flags) {
+//            out.writeInt(mData);
+//        }
+//
+//        public final Parcelable.Creator<MyParcelable> CREATOR
+//                = new Parcelable.Creator<MyParcelable>() {
+//            public MyParcelable createFromParcel(Parcel in) {
+//                return new MyParcelable(in);
+//            }
+//
+//            public MyParcelable[] newArray(int size) {
+//                return new MyParcelable[size];
+//            }
+//        };
+//
+//        /** recreate object from parcel */
+//        private MyParcelable(Parcel in) {
+//            mData = in.readInt();
+//        }
+//   }
     public void submitQuiz(View view){
         RadioButton radioGroup =  (RadioButton) findViewById(R.id.oneB);
         boolean oneAnswer = radioGroup.isChecked();
@@ -55,10 +93,15 @@ public class MainActivity extends AppCompatActivity {
         boolean twoAnswer =  entry.equals("car");
         RadioButton radioThree = (RadioButton) findViewById(R.id.threeA);
         boolean threeAnswer = radioThree.isChecked();
+
         CheckBox checkBox = (CheckBox) findViewById(R.id.check);
         boolean checkedA = checkBox.isChecked();
+
         CheckBox wrongBox = (CheckBox) findViewById(R.id.checkB);
         boolean threeWrong = wrongBox.isChecked();
+
+        CheckBox checkE = (CheckBox) findViewById(R.id.eeE);
+        boolean checkedE = checkE.isChecked();
 
         RadioButton radioGroupFour = (RadioButton) findViewById(R.id.fourAnswer);
         boolean fourAnswer = radioGroupFour.isChecked();
@@ -66,9 +109,9 @@ public class MainActivity extends AppCompatActivity {
 //        int score = addScore(5,oneAnswer,twoAnswer, threeAnswer,fourAnswer);
 
         addScore( minScore,  oneAnswer,  twoAnswer,
-         threeAnswer,  fourAnswer, checkedA, threeWrong) ;
+         threeAnswer,  fourAnswer, checkedA, threeWrong, checkedE) ;
         displayScore(addScore( minScore,  oneAnswer,  twoAnswer,
-                threeAnswer,  fourAnswer, checkedA, threeWrong));
+                threeAnswer,  fourAnswer, checkedA, threeWrong, checkedE));
             //        int score = addScore(minScore, oneAnswer, twoAnswer,
 //                threeAnswer,fourAnswer);
 //        String displayScore = (createQuizSummary(minScore, boolean oneAnswer, boolean twoAnswer,
@@ -80,7 +123,8 @@ public class MainActivity extends AppCompatActivity {
 //         threeAnswer,  fourAnswer, checkedA);
 //    }
     private int addScore(int minScore, boolean oneAnswer, boolean twoAnswer,
-                         boolean threeAnswer, boolean fourAnswer, boolean checkedA, boolean threeWrong) {
+                         boolean threeAnswer, boolean fourAnswer,
+                         boolean checkedA, boolean threeWrong, boolean checkedE){
         if (oneAnswer) {
             minScore ++;
         }if (twoAnswer) {
@@ -89,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
             minScore += 1;
         }if (fourAnswer) {
             minScore += 1;
-        }if(checkedA){
+        }if(checkedA && checkedE){
             minScore ++;
         if(threeWrong){
             minScore --;
@@ -98,8 +142,12 @@ public class MainActivity extends AppCompatActivity {
         return minScore;
     }
     public void displayScore(int minScore){
-        TextView scoreView = (TextView) findViewById(R.id.score);
-        scoreView.setText(String.valueOf(quizSummary(minScore)));
+        Context context = getApplicationContext();
+//        TextView scoreView = (TextView) findViewById(R.id.score);
+        Toast toast = Toast.makeText(context,String.valueOf(quizSummary(minScore)),
+                Toast.LENGTH_LONG);
+        toast.show();
+//        scoreView.setText(String.valueOf(quizSummary(minScore)));
     }
     private String quizSummary(int minScore){
         return "Your Score: " + minScore;

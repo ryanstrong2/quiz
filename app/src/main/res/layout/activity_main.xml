@@ -2,13 +2,28 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:configChanges="keyboardHidden|orientation|screenSize">
+<!--<ViewSwitcher-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"></ViewSwitcher>-->
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="org.ryanstrong.android.quiz.MainActivity">
+    <ImageView
+        android:id="@+id/puff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/android_party" />
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="top"
     android:orientation="vertical"
-    tools:context="org.ryanstrong.android.quiz.MainActivity">
+    >
 
     <TextView
         android:layout_width="wrap_content"
@@ -49,28 +64,7 @@
         android:layout_height="wrap_content"
         android:hint="@string/t_answer"
         android:inputType="textMultiLine" />
-    <!--<RadioGroup-->
-        <!--android:id="@+id/optionTwo"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content">-->
-        <!--<RadioButton-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:id="@+id/twoA"-->
-            <!--android:text="@string/aTwo"/>-->
-        <!--<RadioButton-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:id="@+id/twoB"-->
-            <!--android:text="@string/bTwo"/>-->
-        <!--<RadioButton-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:id="@+id/twoC"-->
-            <!--android:text="@string/cTwo"/>-->
-
-    <!--</RadioGroup>-->
-    <TextView
+        <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:textSize="16sp"
@@ -123,12 +117,13 @@
     android:text="@string/checkB"
     />
     <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingLeft="24dp"
-        android:shadowColor="@color/colorPrimary"
-        android:textSize="16sp"
-        android:text="@string/checkE"/>
+    android:id="@+id/eeE"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingLeft="24dp"
+    android:shadowColor="@color/colorPrimary"
+    android:textSize="16sp"
+    android:text="@string/checkE"/>
     <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -155,15 +150,15 @@
             android:id="@+id/fourC"
             android:text="@string/cFour"/>
     </RadioGroup>
-    <TextView
-        android:id="@+id/score"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:text="-0-"
-        android:textSize="40sp"
-        android:textColor="#000000"
-        android:fontFamily="sans-serif-condensed"/>
+    <!--<TextView-->
+        <!--android:id="@+id/score"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:padding="8dp"-->
+        <!--android:text="-0-"-->
+        <!--android:textSize="40sp"-->
+        <!--android:textColor="#000000"-->
+        <!--android:fontFamily="sans-serif-condensed"/>-->
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -172,4 +167,5 @@
         android:text="Submit" />
 
 </LinearLayout>
+</RelativeLayout>
 </ScrollView>
